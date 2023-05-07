@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags-->
+    {{template "head.html"}}
+</head>
+
+<body class="animsition">
+<div class="page-wrapper">
+    <!-- HEADER MOBILE-->
+    <header class="header-mobile d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="index.html">
+                        <img src="/static/images/icon/logo.png" alt="CoolAdmin"/>
+                    </a>
+                    <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER MOBILE-->
+
+    <!-- MENU SIDEBAR-->
+    <!--    <aside class="menu-sidebar d-none d-lg-block">-->
+    <!--        {{template "menu.html"}}-->
+    <!--    </aside>-->
+    <!-- END MENU SIDEBAR-->
+
+    <!-- PAGE CONTAINER-->
+    <div>
+        <!-- HEADER DESKTOP-->
+
+        <!-- HEADER DESKTOP-->
+
+        <!-- MAIN CONTENT-->
+        <div class="main-content">
+            <div class="section__content">
+                <div class="container-fluid">
+                    <div class="row center-block text-center">
+                        <div class="col-sm-4 col-lg-4 center-block">
+                            <a href="/private/facultades">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="fa fa-home"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>Facultades</h2>
+                                                <samp>Todas las facultades</samp>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col-sm-4 col-lg-4">
+                            <img src="/static/images/icon/moodeval.png" alt="Cool Admin" width="80%"/>
+                        </div>
+                        <div class="col-sm-4 col-lg-4"></div>
+
+
+                    </div>
+                    <div class="row m-t-25">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c1">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-calendar-note"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>2020</h2>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c2">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-calendar-note"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>2021</h2>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c3">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-calendar-note"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>2022</h2>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart3"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="overview-item overview-item--c4">
+                                <div class="overview__inner">
+                                    <div class="overview-box clearfix">
+                                        <div class="icon">
+                                            <i class="zmdi zmdi-calendar-note"></i>
+                                        </div>
+                                        <div class="text">
+                                            <h2>2023</h2>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="overview-chart">
+                                        <canvas id="widgetChart4"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="copyright">
+                                <p>MoodEval © 2023 M&oacute;odulo de AGA. Evaluar el estado de los cursos montados en el
+                                    Moodle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+        <!-- END PAGE CONTAINER-->
+    </div>
+
+</div>
+{{template "js.html"}}
+</body>
+
+</html>
+<!-- end document-->

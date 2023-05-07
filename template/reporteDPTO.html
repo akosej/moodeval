@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+{{$dpto := .dpto}}
+{{$planes := .planes}}
+{{$asigs := .asigs}}
+
+<head>
+    <!-- Required meta tags-->
+    {{template "head.html"}}
+    <!-- Title Page-->
+    <title>Reporte del departamento | {{$dpto.Name}}</title>
+</head>
+
+<body class="animsition">
+<div class="page-wrapper">
+
+    <!-- MAIN CONTENT-->
+    <div class="section__content section__content--p30">
+        <div class="col-lg-4">
+            <img src="/static/images/icon/logo.png" width="50%">
+        </div>
+        <h3>Reporte del departamento {{$dpto.Name}}</h3>
+        <br>
+        <div class="row">
+            <div class="col col-lg-12">
+                <section class="card">
+                    <div class="card-body text-secondary">
+                        <div class="au-card-inner">
+                            <br>
+                            {{range $k, $plan := $planes}}
+                                {{if ne ($dpto.CantAsig $plan) 0}}
+                                    <h4>Modalidad {{$plan.Name}}</h4>
+                                    <p>
+                                        El departamento cuenta con <b>{{$dpto.CantAsig $plan}}</b> asignaturas
+                                        montadas en la
+                                        plataforma Moodle en la modalidad {{$plan.Name}},
+                                        evaluadas de{{if ne ($dpto.CalidadesM $plan) 0}} mal
+                                    <b>{{$dpto.CalidadesM $plan}}</b>{{end}}{{if ne ($dpto.CalidadesR $plan) 0}}, regular
+                                        <b>{{$dpto.CalidadesR $plan}}</b>{{end}}{{if ne ($dpto.CalidadesB $plan) 0}}, bien
+                                        <b>{{$dpto.CalidadesB $plan}}</b>{{end}}{{if ne ($dpto.CalidadesMB $plan) 0}}
+                                    , muy bien <b>{{$dpto.CalidadesMB $plan}}</b>{{end}}.
+                                        De acuerdo a los resultados de la evaluaci&oacute;n individual por
+                                        asignaturas,
+                                        presenta una evaluaci&oacute;n de <b>{{$dpto.EvaluarDpto $plan}}</b>.
+                                    </p>
+                                    <div class="card-body text-secondary">
+                                        {{if ne ($dpto.CalidadesMB $plan) 0}}
+                                            <div class="au-task__item au-task__item--success">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <b>Evaluadas de muy bien</b><br>
+                                                    </h5>
+                                                    <div class="row">
+                                                        <div class="col col-lg-6">
+                                                            <b>Asignatura</b></div>
+                                                        <div class="col col-lg-6">
+                                                            <b>Profesor</b></div>
+                                                    </div>
+                                                    {{range $k, $asig := $asigs}}
+                                                        {{if eq $asig.EvaluarCalidad "Muy bien"}}
+                                                            {{if eq $plan.ID $asig.ConvertUint }}
+                                                                <div class="row">
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.Name}}</div>
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.ProfName}}
+                                                                    </div>
+                                                                </div>
+                                                            {{end}}
+                                                        {{end}}
+                                                    {{end}}
+                                                </div>
+                                            </div>
+                                        {{end}}
+                                        {{if ne ($dpto.CalidadesB $plan) 0}}
+                                            <div class="au-task__item au-task__item--primary">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <b>Evaluadas de bien</b><br>
+                                                    </h5>
+                                                    <div class="row">
+                                                        <div class="col col-lg-6">
+                                                            <b>Asignatura</b></div>
+                                                        <div class="col col-lg-6">
+                                                            <b>Profesor</b></div>
+                                                    </div>
+                                                    {{range $k, $asig := $asigs}}
+                                                        {{if eq $asig.EvaluarCalidad "Bien"}}
+                                                            {{if eq $plan.ID $asig.ConvertUint }}
+                                                                <div class="row">
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.Name}}</div>
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.ProfName}}
+                                                                    </div>
+                                                                </div>
+                                                            {{end}}
+                                                        {{end}}
+                                                    {{end}}
+                                                </div>
+                                            </div>
+                                        {{end}}
+                                        {{if ne ($dpto.CalidadesR $plan) 0}}
+                                            <div class="au-task__item au-task__item--warning">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <b>Evaluadas de regular</b><br>
+                                                    </h5>
+                                                    <div class="row">
+                                                        <div class="col col-lg-6">
+                                                            <b>Asignatura</b></div>
+                                                        <div class="col col-lg-6">
+                                                            <b>Profesor</b></div>
+                                                    </div>
+                                                    {{range $k, $asig := $asigs}}
+                                                        {{if eq $asig.EvaluarCalidad "Regular"}}
+                                                            {{if eq $plan.ID $asig.ConvertUint }}
+                                                                <div class="row">
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.Name}}</div>
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.ProfName}}
+                                                                    </div>
+                                                                </div>
+                                                            {{end}}
+                                                        {{end}}
+                                                    {{end}}
+                                                </div>
+                                            </div>
+                                        {{end}}
+                                        {{if ne ($dpto.CalidadesM $plan) 0}}
+                                            <div class="au-task__item au-task__item--danger">
+                                                <div class="au-task__item-inner">
+                                                    <h5 class="task">
+                                                        <b>Evaluadas de mal</b><br>
+                                                    </h5>
+                                                    <div class="row">
+                                                        <div class="col col-lg-6">
+                                                            <b>Asignatura</b></div>
+                                                        <div class="col col-lg-6">
+                                                            <b>Profesor</b></div>
+                                                    </div>
+                                                    {{range $k, $asig := $asigs}}
+                                                        {{if eq $asig.EvaluarCalidad "Mal"}}
+                                                            {{if eq $plan.ID $asig.ConvertUint }}
+                                                                <div class="row">
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.Name}}</div>
+                                                                    <div class="col col-lg-6">
+                                                                        -{{$asig.ProfName}}
+                                                                    </div>
+                                                                </div>
+                                                            {{end}}
+                                                        {{end}}
+                                                    {{end}}
+                                                </div>
+                                            </div>
+                                        {{end}}
+
+
+                                    </div>
+
+                                    {{if ne $k 0}}<br><br>{{end}}
+                                {{end}}
+                            {{end}}
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col col-lg-4"></div>
+            <div class="col col-lg-4"></div>
+            <div class="col col-lg-4">Dr. c.Yuslenin Hern&aacute;ndez L&oacute;pez.</div>
+        </div>
+    </div>
+
+
+    <!-- END DATA TABLE-->
+
+
+</div>
+
+<!-- END MAIN CONTENT-->
+<!-- END PAGE CONTAINER-->
+</div>
+
+</div>
+{{template "js.html"}}
+<script type="application/javascript">
+    $(document).ready(function () {
+
+    });
+
+
+</script>
+</body>
+
+</html>
+<!-- end document-->
